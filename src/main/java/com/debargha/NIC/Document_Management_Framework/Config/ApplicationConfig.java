@@ -22,7 +22,7 @@ public class ApplicationConfig {
     @Bean
     public UserDetailsService userDetailsService(){
 
-        return clientId -> (UserDetails) ClientRepository.findById(clientId).orElseThrow(()->new UsernameNotFoundException("Client_ID not found"));
+        return clientId -> (UserDetails) ClientRepository.findByClientId(clientId).orElseThrow(()->new UsernameNotFoundException("Client_ID not found"));
     }
 
     @Bean
