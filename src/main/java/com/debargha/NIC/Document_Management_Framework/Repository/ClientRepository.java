@@ -9,6 +9,8 @@ import java.util.Optional;
 
 public interface ClientRepository extends MongoRepository<Client, String> {
 
-    Optional<Client> findByClientId(String clientId);
-    Optional<Client> findByClientIdAndClientSecret(String clientId, String clientSecret);
+    @Query("{ 'client_id' : ?0 }")
+    Optional<Client> findByClient_id(String client_id);
+    @Query("{'client_id': ?0,'client_secret': ?1}")
+    Optional<Client> findByClient_idAndClient_secret(String client_id, String client_secret);
 }

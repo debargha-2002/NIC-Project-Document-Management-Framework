@@ -8,6 +8,6 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class initRequest {
-    private String clientId;
-    private String clientSecret;
+    private String client_id;
+    private String client_secret;
 }

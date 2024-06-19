@@ -27,8 +27,8 @@ import java.util.List;
 @Document(collection="client")
 public class Client implements UserDetails {
 
-    private String clientId;
-    private String clientSecret;
+    private String client_id;
+    private String client_secret;
    // @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
    @Field("created_on")
    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
@@ -51,12 +51,12 @@ public class Client implements UserDetails {
 
     @Override
     public String getPassword() {
-        return clientSecret;
+        return client_secret;
     }
 
     @Override
     public String getUsername() {
-        return clientId;
+        return client_id;
     }
 
     @Override

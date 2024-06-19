@@ -28,23 +28,23 @@ public class AuthenticationService {
 
     public initResponse register(RegisterRequest request){
         var client = Client.builder()
-                .clientId(request.getClientId())
-                .clientSecret(passwordEncoder.encode(request.getClientSecret()))
+                .client_id(request.getClient_id())
+                .client_secret(passwordEncoder.encode(request.getClient_secret()))
                 .build();
         client.setCreated_on(LocalDateTime.now());
         client.setExpiry_on(LocalDateTime.now().plusYears(2));
         ClientRepository.save(client);
-        var jwtToken = JWTService.generateToken(client.getClientId());
+        var jwtToken = JWTService.generateToken(client.getClient_id());
         return initResponse.builder().token(jwtToken).build();
     }
 
     public initResponse authenticate(initRequest request){
         authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(request.getClientId(), request.getClientSecret())
+                new UsernamePasswordAuthenticationToken(request.getClient_id(), request.getClient_secret())
         );
-        var client = ClientRepository.findByClientId(request.getClientId()).orElseThrow();
+        var client = ClientRepository.findByClient_id(request.getClient_id()).orElseThrow();
 
-        var jwtToken = JWTService.generateToken(client.getClientId());
+        var jwtToken = JWTService.generateToken(client.getClient_id());
         return (initResponse.builder().token(jwtToken).build());
     }
 }

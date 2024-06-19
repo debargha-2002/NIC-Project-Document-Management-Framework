@@ -38,7 +38,7 @@ public class InitAuthController {
 
     @PostMapping("/init")
     public ResponseEntity<initResponse> init(@RequestBody initRequest request) {
-        if (clientRepository.findByClientId(request.getClientId()).isPresent()) {
+        if (clientRepository.findByClient_id(request.getClient_id()).isPresent()) {
             try {
                 initResponse response = service.authenticate(request);
                 response.setMessage("Logged in successfully");
@@ -51,8 +51,8 @@ public class InitAuthController {
             }
         } else {
             RegisterRequest registerRequest = new RegisterRequest();
-            registerRequest.setClientId(request.getClientId());
-            registerRequest.setClientSecret(request.getClientSecret());
+            registerRequest.setClient_id(request.getClient_id());
+            registerRequest.setClient_secret(request.getClient_secret());
 
             try {
                 initResponse response = service.register(registerRequest);
