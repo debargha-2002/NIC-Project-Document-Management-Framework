@@ -5,6 +5,8 @@ import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.LocalDateTime;
+
 
 @Data
 @Builder
@@ -17,4 +19,5 @@ public class Review {
 
     private Long application_transaction_id;
     private String review;
+    LocalDateTime review_date;
 }

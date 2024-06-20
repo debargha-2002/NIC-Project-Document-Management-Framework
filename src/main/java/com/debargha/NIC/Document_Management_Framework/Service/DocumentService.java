@@ -86,12 +86,14 @@ public class DocumentService {
 
            // Query query = new Query(where("application_transaction_id").is(existing.getApplication_transaction_id()));
             Update update = new Update().set("review", review.getReview());
+            update.set("review_date",LocalDateTime.now());
 
             mongoTemplate.updateFirst(query(where("application_transaction_id").is(existing.getApplication_transaction_id())), update,Review.class);
             return mongoTemplate.findOne(query(where("application_transaction_id").is(existing.getApplication_transaction_id())), Review.class);
           //  return reviewRepository.save(existing);
         }
         //create new review
+        review.setReview_date(LocalDateTime.now());
         return reviewRepository.save(review);
     }
     //get review logs
@@ -120,7 +122,7 @@ public class DocumentService {
         }
 
         archivedDocument.ifPresent(document -> documentRepository.deleteById(document.getDocument_id()));
-
+        archiveDocument.setArchive_date(LocalDateTime.now());
         return archiveRepository.save(archiveDocument);
     }
     //view archive logs
