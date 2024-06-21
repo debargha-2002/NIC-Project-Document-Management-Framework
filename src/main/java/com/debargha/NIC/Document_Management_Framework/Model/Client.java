@@ -27,6 +27,7 @@ import java.util.List;
 @Document(collection="client")
 public class Client implements UserDetails {
 
+    @Id
     private String client_id;
     private String client_secret;
    // @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
@@ -36,11 +37,6 @@ public class Client implements UserDetails {
     @Field("expiry_on")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDateTime expiry_on;
-
-//    public Client() {
-//        this.created_on = LocalDateTime.now(); // Set current date and time
-//        this.expiry_on = this.created_on.plusYears(1); // Set expiry 1 year after createdOn
-//    }
 
     // Implement UserDetails methods
     @Override
@@ -83,38 +79,6 @@ public class Client implements UserDetails {
         return true;
     }
 
-    // Getters and setters
-//    public String getClientId() {
-//        return clientId;
-//    }
-//
-//    public void setClientId(String clientId) {
-//        this.clientId = clientId;
-//    }
-//
-//    public String getClientSecret() {
-//        return clientSecret;
-//    }
-//
-//    public void setClientSecret(String clientSecret) {
-//        this.clientSecret = clientSecret;
-//    }
-//
-//    public LocalDateTime getCreatedOn() {
-//        return createdOn;
-//    }
-//
-//    public void setCreatedOn(LocalDateTime createdOn) {
-//        this.createdOn = createdOn;
-//    }
-//
-//    public LocalDateTime getExpiryOn() {
-//        return expiryOn;
-//    }
-//
-//    public void setExpiryOn(LocalDateTime expiryOn) {
-//        this.expiryOn = expiryOn;
-//    }
 
 
 }
