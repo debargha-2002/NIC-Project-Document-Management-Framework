@@ -24,15 +24,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class InitAuthController {
 
     private final AuthenticationService service;
-
-
-
-
-
     @Autowired
     private final ClientRepository clientRepository;
-
-
     @Autowired
     private JWTService jwtUtil;
 
