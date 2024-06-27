@@ -2,7 +2,9 @@ package com.debargha.NIC.Document_Management_Framework.Controller;
 
 import com.debargha.NIC.Document_Management_Framework.Model.*;
 import com.debargha.NIC.Document_Management_Framework.Repository.DocumentRepository;
+import com.debargha.NIC.Document_Management_Framework.Service.ClientService;
 import com.debargha.NIC.Document_Management_Framework.Service.DocumentService;
+import com.debargha.NIC.Document_Management_Framework.dto.SignUpRequestDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +22,8 @@ public class DocumentController {
     private DocumentService documentService;
     @Autowired
     private DocumentRepository documentRepository;
+    @Autowired
+    ClientService clientService;
     @Autowired
     public DocumentController(DocumentService documentService, DocumentRepository documentRepository) {
         this.documentService = documentService;
@@ -156,6 +160,8 @@ public class DocumentController {
             return ResponseEntity.status(500).body("Failed to add password to base64PDF: " + e.getMessage());
         }
     }
+
+
 
 
 

@@ -37,11 +37,19 @@ public class Client implements UserDetails {
     @Field("expiry_on")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDateTime expiry_on;
-
+    @Getter
+    @Setter
+    private long mobile_no;
+    private String email_id;
+    private String name;
+    private String gender;
+    private String dob;
+    private String address;
+    private Role role;
     // Implement UserDetails methods
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        // Implement logic to return authorities/roles if needed
         return null;
     }
 

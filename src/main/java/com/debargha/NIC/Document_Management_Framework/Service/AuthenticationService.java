@@ -1,6 +1,7 @@
 package com.debargha.NIC.Document_Management_Framework.Service;
 
 import com.debargha.NIC.Document_Management_Framework.Model.Client;
+import com.debargha.NIC.Document_Management_Framework.Model.Role;
 import com.debargha.NIC.Document_Management_Framework.Payload.RegisterRequest;
 import com.debargha.NIC.Document_Management_Framework.Payload.initRequest;
 import com.debargha.NIC.Document_Management_Framework.Payload.initResponse;
@@ -33,6 +34,7 @@ public class AuthenticationService {
                 .build();
         client.setCreated_on(LocalDateTime.now());
         client.setExpiry_on(LocalDateTime.now().plusYears(2));
+        client.setRole(Role.USER);
         ClientRepository.save(client);
         var jwtToken = JWTService.generateToken(client.getClient_id());
         return initResponse.builder().token(jwtToken).build();
