@@ -1,4 +1,4 @@
-package com.debargha.NIC.Document_Management_Framework.Payload;
+package com.debargha.NIC.Document_Management_Framework.dto;
 
 import lombok.*;
 

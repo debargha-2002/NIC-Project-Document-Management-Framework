@@ -1,6 +1,7 @@
 package com.debargha.NIC.Document_Management_Framework.Model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
@@ -53,11 +54,13 @@ public class Client implements UserDetails {
         return null;
     }
 
+    @JsonIgnore
     @Override
     public String getPassword() {
         return client_secret;
     }
 
+    @JsonIgnore
     @Override
     public String getUsername() {
         return client_id;

@@ -1,18 +1,15 @@
 package com.debargha.NIC.Document_Management_Framework.Controller;
 
 import com.debargha.NIC.Document_Management_Framework.JWT.JWTService;
-import com.debargha.NIC.Document_Management_Framework.Payload.RegisterRequest;
-import com.debargha.NIC.Document_Management_Framework.Payload.initRequest;
-import com.debargha.NIC.Document_Management_Framework.Payload.initResponse;
+import com.debargha.NIC.Document_Management_Framework.dto.RegisterRequest;
+import com.debargha.NIC.Document_Management_Framework.dto.initRequest;
+import com.debargha.NIC.Document_Management_Framework.dto.initResponse;
 import com.debargha.NIC.Document_Management_Framework.Repository.ClientRepository;
 import com.debargha.NIC.Document_Management_Framework.Service.AuthenticationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

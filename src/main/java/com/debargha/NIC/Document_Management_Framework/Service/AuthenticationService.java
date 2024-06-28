@@ -2,11 +2,10 @@ package com.debargha.NIC.Document_Management_Framework.Service;
 
 import com.debargha.NIC.Document_Management_Framework.Model.Client;
 import com.debargha.NIC.Document_Management_Framework.Model.Role;
-import com.debargha.NIC.Document_Management_Framework.Payload.RegisterRequest;
-import com.debargha.NIC.Document_Management_Framework.Payload.initRequest;
-import com.debargha.NIC.Document_Management_Framework.Payload.initResponse;
+import com.debargha.NIC.Document_Management_Framework.dto.RegisterRequest;
+import com.debargha.NIC.Document_Management_Framework.dto.initRequest;
+import com.debargha.NIC.Document_Management_Framework.dto.initResponse;
 import com.debargha.NIC.Document_Management_Framework.Repository.ClientRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
@@ -14,7 +13,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 
